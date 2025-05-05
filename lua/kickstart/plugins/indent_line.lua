@@ -1,9 +1,11 @@
 return {
   { -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
     main = 'ibl',
-    opts = {},
+    opts = {
+      indent = {
+        char = '│', -- Use a simple vertical line (U+2502); alternatives: '┊', '▎', '|'
+      },
+    },
   },
 }
