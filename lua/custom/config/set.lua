@@ -76,8 +76,4 @@ vim.opt.scrolloff = 10
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.opt.confirm = true
-
-vim.o.foldmethod = 'expr'
-vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
-vim.o.foldlevel = 0 -- All folds closed initially
-vim.o.foldenable = true -- Enable folding
+--require 'custom.functions.fold'

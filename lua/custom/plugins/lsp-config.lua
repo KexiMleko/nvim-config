@@ -227,26 +227,5 @@ return {
         end,
       },
     }
-    local lspconfig = require 'lspconfig'
-
-    -- Dart LSP configuration
-    lspconfig.dart_ls.setup {
-      -- Optional: Additional settings for the Dart Language Server
-      cmd = { 'dart', 'language-server', '--protocol=lsp' },
-      filetypes = { 'dart' },
-      init_options = {
-        closingLabels = true,
-        flutterOutline = true,
-        onlyAnalyzeProjectsWithOpenFiles = true,
-        outline = true,
-        suggestFromUnimportedLibraries = true,
-      },
-      settings = {
-        dart = {
-          completeFunctionCalls = true,
-          showTodos = true,
-        },
-      },
-    }
   end,
 }
