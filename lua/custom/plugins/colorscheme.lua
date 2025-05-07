@@ -19,7 +19,7 @@ return {
       styles = {
         bold = true,
         italic = true,
-        transparency = true, -- Changed to true for transparency
+        transparency = false, -- Changed to true for transparency
       },
 
       groups = {
