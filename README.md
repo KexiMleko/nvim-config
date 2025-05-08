@@ -1,240 +1,208 @@
-# kickstart.nvim
+# 🧝‍♂️ THE SCROLLS OF NEOVIM: A TALE OF KICKSTARTER ORIGINS 🧙‍♀️
 
-## Introduction
+> *"In the ancient lands of Textoria, where the cursor blinks with mystical energy, a hero emerged from the ashes of Kickstarter, wielding the sacred configuration of Neovim. The elves of LSP forest whispered of its power, while the treesitter dwarves marveled at its syntax highlighting capabilities..."* 
+>
+> — Chronicles of the Terminal Realm, Volume IV
 
-A starting point for Neovim that is:
+## 🔮 PROPHECY OF INSTALLATION
 
-* Small
-* Single-file
-* Completely Documented
+*Listen closely, weary traveler, for the installation of this sacred configuration requires following the ancient rituals precisely:*
 
-**NOT** a Neovim distribution, but instead a starting point for your configuration.
+```bash
+# Clone the repository of power into thy home directory
+git clone https://github.com/YOUR_USERNAME/nvim-config.git ~/.config/nvim
 
-## Installation
+# Enter the sacred directory
+cd ~/.config/nvim
 
-### Install Neovim
-
-Kickstart.nvim targets *only* the latest
-['stable'](https://github.com/neovim/neovim/releases/tag/stable) and latest
-['nightly'](https://github.com/neovim/neovim/releases/tag/nightly) of Neovim.
-If you are experiencing issues, please make sure you have the latest versions.
-
-### Install External Dependencies
-
-External Requirements:
-- Basic utils: `git`, `make`, `unzip`, C Compiler (`gcc`)
-- [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
-- Clipboard tool (xclip/xsel/win32yank or other depending on the platform)
-- A [Nerd Font](https://www.nerdfonts.com/): optional, provides various icons
-  - if you have it set `vim.g.have_nerd_font` in `init.lua` to true
-- Emoji fonts (Ubuntu only, and only if you want emoji!) `sudo apt install fonts-noto-color-emoji`
-- Language Setup:
-  - If you want to write Typescript, you need `npm`
-  - If you want to write Golang, you will need `go`
-  - etc.
-
-> [!NOTE]
-> See [Install Recipes](#Install-Recipes) for additional Windows and Linux specific notes
-> and quick install snippets
-
-### Install Kickstart
-
-> [!NOTE]
-> [Backup](#FAQ) your previous configuration (if any exists)
-
-Neovim's configurations are located under the following paths, depending on your OS:
-
-| OS | PATH |
-| :- | :--- |
-| Linux, MacOS | `$XDG_CONFIG_HOME/nvim`, `~/.config/nvim` |
-| Windows (cmd)| `%localappdata%\nvim\` |
-| Windows (powershell)| `$env:LOCALAPPDATA\nvim\` |
-
-#### Recommended Step
-
-[Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) this repo
-so that you have your own copy that you can modify, then install by cloning the
-fork to your machine using one of the commands below, depending on your OS.
-
-> [!NOTE]
-> Your fork's URL will be something like this:
-> `https://github.com/<your_github_username>/kickstart.nvim.git`
-
-You likely want to remove `lazy-lock.json` from your fork's `.gitignore` file
-too - it's ignored in the kickstart repo to make maintenance easier, but it's
-[recommended to track it in version control](https://lazy.folke.io/usage/lockfile).
-
-#### Clone kickstart.nvim
-
-> [!NOTE]
-> If following the recommended step above (i.e., forking the repo), replace
-> `nvim-lua` with `<your_github_username>` in the commands below
-
-<details><summary> Linux and Mac </summary>
-
-```sh
-git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+# Ensure thee has the required artifacts:
+# - Neovim >= 0.9.0 (the elder scrolls speak of this minimum version)
+# - A working brain (rare item, drops from educational dungeons)
+# - Git (to track changes in the timestream)
+# - A compiler (gcc/clang) for the telepathic plugins
 ```
 
-</details>
+## 🧙 THE FELLOWSHIP OF PLUGINS
 
-<details><summary> Windows </summary>
+*As the prophecy foretold, our hero gathered a fellowship of powerful plugins to aid in the quest against buggy code and syntax errors:*
 
-If you're using `cmd.exe`:
-
-```
-git clone https://github.com/nvim-lua/kickstart.nvim.git "%localappdata%\nvim"
-```
-
-If you're using `powershell.exe`
-
-```
-git clone https://github.com/nvim-lua/kickstart.nvim.git "${env:LOCALAPPDATA}\nvim"
-```
-
-</details>
-
-### Post Installation
-
-Start Neovim
-
-```sh
-nvim
-```
-
-That's it! Lazy will install all the plugins you have. Use `:Lazy` to view
-the current plugin status. Hit `q` to close the window.
-
-#### Read The Friendly Documentation
-
-Read through the `init.lua` file in your configuration folder for more
-information about extending and exploring Neovim. That also includes
-examples of adding popularly requested plugins.
-
-> [!NOTE]
-> For more information about a particular plugin check its repository's documentation.
-
-
-### Getting Started
-
-[The Only Video You Need to Get Started with Neovim](https://youtu.be/m8C0Cq9Uv9o)
-
-### FAQ
-
-* What should I do if I already have a pre-existing Neovim configuration?
-  * You should back it up and then delete all associated files.
-  * This includes your existing init.lua and the Neovim files in `~/.local`
-    which can be deleted with `rm -rf ~/.local/share/nvim/`
-* Can I keep my existing configuration in parallel to kickstart?
-  * Yes! You can use [NVIM_APPNAME](https://neovim.io/doc/user/starting.html#%24NVIM_APPNAME)`=nvim-NAME`
-    to maintain multiple configurations. For example, you can install the kickstart
-    configuration in `~/.config/nvim-kickstart` and create an alias:
-    ```
-    alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
-    ```
-    When you run Neovim using `nvim-kickstart` alias it will use the alternative
-    config directory and the matching local directory
-    `~/.local/share/nvim-kickstart`. You can apply this approach to any Neovim
-    distribution that you would like to try out.
-* What if I want to "uninstall" this configuration:
-  * See [lazy.nvim uninstall](https://lazy.folke.io/usage#-uninstalling) information
-* Why is the kickstart `init.lua` a single file? Wouldn't it make sense to split it into multiple files?
-  * The main purpose of kickstart is to serve as a teaching tool and a reference
-    configuration that someone can easily use to `git clone` as a basis for their own.
-    As you progress in learning Neovim and Lua, you might consider splitting `init.lua`
-    into smaller parts. A fork of kickstart that does this while maintaining the
-    same functionality is available here:
-    * [kickstart-modular.nvim](https://github.com/dam9000/kickstart-modular.nvim)
-  * Discussions on this topic can be found here:
-    * [Restructure the configuration](https://github.com/nvim-lua/kickstart.nvim/issues/218)
-    * [Reorganize init.lua into a multi-file setup](https://github.com/nvim-lua/kickstart.nvim/pull/473)
-
-### Install Recipes
-
-Below you can find OS specific install instructions for Neovim and dependencies.
-
-After installing all the dependencies continue with the [Install Kickstart](#Install-Kickstart) step.
-
-#### Windows Installation
-
-<details><summary>Windows with Microsoft C++ Build Tools and CMake</summary>
-Installation may require installing build tools and updating the run command for `telescope-fzf-native`
-
-See `telescope-fzf-native` documentation for [more details](https://github.com/nvim-telescope/telescope-fzf-native.nvim#installation)
-
-This requires:
-
-- Install CMake and the Microsoft C++ Build Tools on Windows
+### 🧝‍♀️ THE ELVEN COUNCIL OF LSP
 
 ```lua
-{'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+-- LSP/ directory contains the ancient elven magic:
+-- blink-cmp.lua - Summons autocompletion with the blink of an eye
+-- colorscheme.lua - Contains the essence of visual aesthetics
+-- conform.lua - Enforces the strict formatting laws of the realm
+-- fugitive.lua - For negotiating with the git demons
+-- harpoon.lua - Teleportation magic between files
+-- init.lua - The ancient scroll that binds them all
+-- lsp-config.lua - Speaks the language of many programming tongues
+-- mini.lua - Small but mighty spells for everyday tasks
+-- telescope.lua - Scrying orb for finding lost code fragments
+-- todo-comments.lua - Remembrance spells for future tasks
+-- treesitter.lua - The ancient language parser of the forest folk
+-- undotree.lua - Manipulates the timeline of changes
+-- which-key.lua - Reveals the hidden knowledge of keybinds
 ```
-</details>
-<details><summary>Windows with gcc/make using chocolatey</summary>
-Alternatively, one can install gcc and make which don't require changing the config,
-the easiest way is to use choco:
 
-1. install [chocolatey](https://chocolatey.org/install)
-either follow the instructions on the page or use winget,
-run in cmd as **admin**:
-```
-winget install --accept-source-agreements chocolatey.chocolatey
-```
+### 🧌 THE KICKSTARTER GOBLINS
 
-2. install all requirements using choco, exit the previous cmd and
-open a new one so that choco path is set, and run in cmd as **admin**:
-```
-choco install -y neovim git ripgrep wget fd unzip gzip mingw make
-```
-</details>
-<details><summary>WSL (Windows Subsystem for Linux)</summary>
+*These chaotic entities formed the foundation of our hero's journey:*
 
 ```
-wsl --install
-wsl
-sudo add-apt-repository ppa:neovim-ppa/unstable -y
-sudo apt update
-sudo apt install make gcc ripgrep unzip git xclip neovim
+-- autopairs.lua - Automatically pairs brackets like star-crossed lovers
+-- debug.lua - Reveals the hidden truths of broken code
+-- gitsigns.lua - Marks the territory changed by git spirits
+-- indent_line.lua - Guides the eye through the valleys of indentation
 ```
-</details>
 
-#### Linux Install
-<details><summary>Ubuntu Install Steps</summary>
+## 🗡️ SACRED KEYBINDINGS OF POWER
 
+*The ancient runes, when pressed in specific combinations, unleash powerful magic:*
+
+### 🔥 GENERAL INCANTATIONS
+
+| Rune Combination | Mystical Effect |
+|------------------|----------------|
+| `<Space>` | The Leader key, center of all power |
+| `<Esc>` | Dispels the highlighting enchantment |
+| `v + J/K` | Moves text blocks up and down like levitation |
+| `<C-d>/<C-u>` | Teleports half a page while keeping your position centered |
+| `n/N` | Seeks the next/previous search result with centered vision |
+| `<Leader>n` | Summons the Netrw file spirit |
+
+### 🧙‍♂️ HARPOON TELEPORTATION
+
+*The harpoon, forged in ancient fires, allows instant travel between important locations:*
+
+| Rune Combination | Mystical Effect |
+|------------------|----------------|
+| `<Leader>a` | Marks current location with a magical beacon |
+| `<C-e>` | Opens the mystical portal menu |
+| `<C-j>` | Teleports to beacon 1 |
+| `<C-k>` | Teleports to beacon 2 |
+| `<C-l>` | Teleports to beacon 3 |
+| `<C-;>` | Teleports to beacon 4 |
+| `<C-S-P>` | Travels to previous beacon |
+| `<C-S-N>` | Travels to next beacon |
+
+### 🔭 TELESCOPE SCRYING
+
+*With the telescope artifact, one can search the cosmos for code and knowledge:*
+
+| Rune Combination | Mystical Effect |
+|------------------|----------------|
+| `<Leader>sh` | Searches the ancient help tomes |
+| `<Leader>sk` | Reveals all known keybinding spells |
+| `<Leader>sf` | Finds files in the current realm |
+| `<Leader>ss` | Selects which telescope lens to use |
+| `<C-p>` | Searches only files known to git |
+| `<Leader>sw` | Searches for the word under thy cursor |
+| `<Leader>sg` | Live grep search, finding text as thou type |
+| `<Leader>sd` | Reveals diagnostics from the debugging spirits |
+| `<Leader>sr` | Resumes thy last telescope search |
+| `<Leader>s.` | Shows recently opened scrolls |
+| `<Leader><Leader>` | Lists all open buffers |
+
+### 🧝‍♀️ LANGUAGE SERVER PROTOCOL MAGIC
+
+*The elven magic of LSP provides intelligence beyond mortal coding:*
+
+| Rune Combination | Mystical Effect |
+|------------------|----------------|
+| `<Leader>ca` | Summons code actions for magical fixes |
+| `<Leader>e` | Reveals diagnostic messages in a floating scroll |
+| `]e` | Jumps to next error in thy path |
+| `[e` | Returns to previous error |
+
+### 🧙‍♂️ FUGITIVE GIT SORCERY
+
+*Control the timeline itself with these git manipulation spells:*
+
+| Rune Combination | Mystical Effect |
+|------------------|----------------|
+| `<Leader>gs` | Shows the current state of thy timeline |
+| `<Leader>ga` | Adds current file to the git staging area |
+| `<Leader>gc` | Commits thy changes to the timestream |
+| `<Leader>gp` | Pushes thy commits to the remote realm |
+| `<Leader>gl` | Pulls changes from the remote realm |
+| `<Leader>gd` | Shows the differences in the timeline |
+| `<Leader>gb` | Reveals who is to blame for each line |
+| `<Leader>go` | Shows the log of all timeline changes |
+| `<Leader>gh` | Opens thy repository in the browser crystal ball |
+
+## 📜 THE FORBIDDEN ARROW KEYS
+
+*Legend says those who use arrow keys shall be cursed with inefficiency for eternity:*
+
+```lua
+-- These keys are bound to shame the unworthy:
+vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 ```
-sudo add-apt-repository ppa:neovim-ppa/unstable -y
-sudo apt update
-sudo apt install make gcc ripgrep unzip git xclip neovim
-```
-</details>
-<details><summary>Debian Install Steps</summary>
 
-```
-sudo apt update
-sudo apt install make gcc ripgrep unzip git xclip curl
+## 🏰 THE ORIGIN STORY
 
-# Now we install nvim
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
-sudo rm -rf /opt/nvim-linux-x86_64
-sudo mkdir -p /opt/nvim-linux-x86_64
-sudo chmod a+rX /opt/nvim-linux-x86_64
-sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+*Long ago, in the mythical realm of "Kickstarter," this configuration began as a humble seed. Through trials of debugging and tribulations of plugin compatibility, it grew into the mighty configuration you see today.*
 
-# make it available in /usr/local/bin, distro installs to /usr/bin
-sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/
-```
-</details>
-<details><summary>Fedora Install Steps</summary>
+*It is said that the configuration was forged in the fires of productivity by a wizard who grew tired of waiting for VSCode to load. As punishment for its sluggishness, the wizard banished all non-terminal IDEs from their system and embarked on the Neovim journey.*
 
-```
-sudo dnf install -y gcc make git ripgrep fd-find unzip neovim
-```
-</details>
+*Some say the wizard still roams the lands of GitHub, committing improvements to their configuration while muttering curses at electron-based editors.*
 
-<details><summary>Arch Install Steps</summary>
+## 🧠 AWAKENING THE POWER
 
-```
-sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim
-```
-</details>
+*To unleash the full potential of this configuration, one must become one with the keyboard. Forget thy mouse, for it is a crutch of the weak. Embrace the modal editing philosophy, and you shall transcend to a higher plane of text manipulation.*
 
+```bash
+# Start thy journey with:
+nvim
+
+# Train thy fingers with:
+:Tutor
+
+# Check thy health with:
+:checkhealth
+```
+
+## ⚔️ KNOWN BATTLES AND VICTORIES
+
+- The Great Plugin War of 2023 (resolved by switching to lazy.nvim)
+- The LSP Configuration Crusade (won through persistence and StackOverflow)
+- The Tab vs. Space Holy War (spaces emerged victorious, 2 spaces per indent)
+- The Colorscheme Quest (ended with a custom theme that doesn't hurt thine eyes)
+
+## 🧪 POTIONS AND ELIXIRS FOR ENHANCEMENT
+
+*Should thee wish to enhance thy setup further, consider these magical additions:*
+
+```bash
+# Install ripgrep for enhanced telescope search magic
+sudo apt install ripgrep  # For debian-based realms
+brew install ripgrep      # For the mac kingdom
+
+# Install fd for faster file finding
+sudo apt install fd-find  # For debian-based realms
+brew install fd           # For the mac kingdom
+
+# Install Node.js for some LSP servers
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+## 📝 SCROLLS OF WISDOM
+
+> *"The true Neovim wizard knows that 'hjkl' are not just keys, but a way of life."*
+>
+> *"Seek not the mouse, for it leads only to inefficiency and carpal tunnel syndrome."*
+>
+> *"He who uses `:w` frequently shall never lose more than a minute's work."*
+
+---
+
+*This README was written on a full moon, using the very Neovim configuration it describes, by a wizard high on caffeine and low on sleep. Any bugs are not actually bugs but features designed to test thy patience and problem-solving abilities.*
+
+*May thy coding be swift and thy bugs be few.*
+
+*~ The End (or is it just the beginning of thy Neovim journey?) ~*
