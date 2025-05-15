@@ -6,7 +6,14 @@ return {
     local harpoon = require 'harpoon'
 
     -- REQUIRED
-    harpoon:setup()
+    harpoon:setup {
+      default = {
+        display = function(list_item)
+          local path = vim.fn.fnamemodify(list_item.value, ':.')
+          return path
+        end,
+      },
+    }
     -- REQUIRED
 
     vim.keymap.set('n', '<leader>a', function()
@@ -16,13 +23,13 @@ return {
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end)
 
-    vim.keymap.set('n', '<C-j>', function()
+    vim.keymap.set('n', '<C-h>', function()
       harpoon:list():select(1)
     end)
-    vim.keymap.set('n', '<C-k>', function()
+    vim.keymap.set('n', '<C-j>', function()
       harpoon:list():select(2)
     end)
-    vim.keymap.set('n', '<C-l>', function()
+    vim.keymap.set('n', '<C-k>', function()
       harpoon:list():select(3)
     end)
     vim.keymap.set('n', '<C-;>', function()

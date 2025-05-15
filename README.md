@@ -79,10 +79,10 @@ cd ~/.config/nvim
 |------------------|----------------|
 | `<Leader>a` | Marks current location with a magical beacon |
 | `<C-e>` | Opens the mystical portal menu |
-| `<C-j>` | Teleports to beacon 1 |
-| `<C-k>` | Teleports to beacon 2 |
-| `<C-l>` | Teleports to beacon 3 |
-| `<C-;>` | Teleports to beacon 4 |
+| `<C-h>` | Teleports to beacon 1 |
+| `<C-j>` | Teleports to beacon 2 |
+| `<C-k>` | Teleports to beacon 3 |
+| `<C-l>` | Teleports to beacon 4 |
 | `<C-S-P>` | Travels to previous beacon |
 | `<C-S-N>` | Travels to next beacon |
 
