@@ -10,6 +10,7 @@ return {
   require 'custom.plugins.todo-comments',
   require 'custom.plugins.treesitter',
   require 'custom.plugins.mini',
+  require 'custom.plugins.hardtime',
 
   --ColorScheme--
   require 'custom.plugins.colorscheme',
