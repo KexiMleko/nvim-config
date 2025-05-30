@@ -11,7 +11,7 @@ return {
   require 'custom.plugins.treesitter',
   require 'custom.plugins.mini',
   require 'custom.plugins.hardtime',
-
+  require 'custom.plugins.highlight-colors',
   --ColorScheme--
   require 'custom.plugins.colorscheme',
 
