@@ -12,9 +12,8 @@ return {
   require 'custom.plugins.mini',
   require 'custom.plugins.hardtime',
   require 'custom.plugins.highlight-colors',
-  --ColorScheme--
-  require 'custom.plugins.colorscheme',
 
+  require 'custom.plugins.color-scheme',
   --lsp plugins--
   require 'custom.plugins.LSP.dart',
 }
