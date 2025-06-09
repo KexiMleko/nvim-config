@@ -9,11 +9,15 @@ local function enableTransparency()
 end
 function ColorMe(color, transparent)
   color = color or CURRENT_COLOR_SCHEME
-  transparent = transparent or false
-  vim.cmd.colorscheme(color)
+  if transparent == nil then
+    transparent = TRANSPARENCY_ENABLED
+  end
+  vim.cmd('colorscheme ' .. color)
   CURRENT_COLOR_SCHEME = color
   if transparent then
     enableTransparency()
     TRANSPARENCY_ENABLED = true
+  else
+    TRANSPARENCY_ENABLED = false
   end
 end
