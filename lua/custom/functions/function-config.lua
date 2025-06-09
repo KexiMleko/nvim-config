@@ -1,0 +1,2 @@
+CURRENT_COLOR_SCHEME = 'rose-pine'
+TRANSPARENCY_ENABLED = false

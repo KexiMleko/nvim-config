@@ -1,5 +1,3 @@
-TRANSPARENCY_ENABLED = false
-
 function _G.ToggleTransparency()
   TRANSPARENCY_ENABLED = not TRANSPARENCY_ENABLED
 
@@ -14,7 +12,7 @@ function _G.ToggleTransparency()
     print 'Transparency enabled'
   else
     -- Reapply colorscheme to reset background
-    vim.cmd 'colorscheme rose-pine'
+    vim.cmd('colorscheme ' .. CURRENT_COLOR_SCHEME)
     print 'Transparency disabled'
   end
 end
