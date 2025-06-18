@@ -2,8 +2,6 @@ return {
   {
     'rose-pine/neovim',
     name = 'rose-pine',
-    lazy = false, -- Load immediately to ensure colorscheme applies on startup
-    priority = 1000, -- High priority to load before other plugins
     opts = {
       variant = 'auto', -- auto, main, moon, or dawn
       dark_variant = 'main', -- main, moon, or dawn
