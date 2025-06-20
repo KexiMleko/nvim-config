@@ -1,10 +1,11 @@
 return {
-  require 'custom.plugins.dashboard',
+  require 'custom.plugins.alpha-dashboard',
   require 'custom.plugins.fugitive',
   require 'custom.plugins.harpoon',
   require 'custom.plugins.undotree',
   require 'custom.plugins.which-key',
   require 'custom.plugins.telescope',
+  require 'custom.plugins.telescope-project',
   require 'custom.plugins.conform',
   require 'custom.plugins.blink-cmp',
   require 'custom.plugins.todo-comments',

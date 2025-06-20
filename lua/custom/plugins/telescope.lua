@@ -37,13 +37,24 @@ return { -- Fuzzy Finder (files, lsp, etc)
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
         },
+        project = {
+          base_dirs = {
+            { path = vim.fn.stdpath 'config', max_depth = 1 },
+            { path = 'C:\\Projects', max_depth = 2 },
+          },
+          hidden_files = false,
+          theme = 'dropdown',
+          order_by = 'recent',
+          search_by = 'title',
+          sync_with_nvim_tree = false,
+        },
       },
     }
 
     -- Enable Telescope extensions if they are installed
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
-
+    pcall(require('telescope').load_extension, 'project')
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
     vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
