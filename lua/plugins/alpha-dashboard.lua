@@ -1,6 +1,6 @@
 return {
   'goolord/alpha-nvim',
-  lazy = false,
+  lazy = true,
   priority = 1000,
   dependencies = { 'nvim-tree/nvim-web-devicons' }, -- optional but makes it look nice
   config = function()

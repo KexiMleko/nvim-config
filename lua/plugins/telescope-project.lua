@@ -1,5 +1,14 @@
 return {
   'nvim-telescope/telescope-project.nvim',
-  lazy = false,
+  keys = {
+    {
+      '<leader>sp',
+      '<cmd>Telescope project<CR>',
+      desc = 'Search projects',
+    },
+  },
+  cmd = {
+    'Telescope project',
+  },
   dependencies = { 'nvim-telescope/telescope.nvim' },
 }

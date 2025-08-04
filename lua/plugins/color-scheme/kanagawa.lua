@@ -1,5 +1,6 @@
 return {
   'rebelot/kanagawa.nvim',
+  lazy = true,
   config = function()
     --    vim.o.background = 'light'
     require('kanagawa').setup {

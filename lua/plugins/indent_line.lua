@@ -1,10 +1,12 @@
 return {
-  { -- Add indentation guides even on blank lines
+  {
     'lukas-reineke/indent-blankline.nvim',
+    lazy = true,
+    event = { 'BufReadPre', 'BufNewFile' },
     main = 'ibl',
     opts = {
       indent = {
-        char = '│', -- Use a simple vertical line (U+2502); alternatives: '┊', '▎', '|'
+        char = '│', -- Alternatives: '┊', '▎', '|'
       },
     },
   },
