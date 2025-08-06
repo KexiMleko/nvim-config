@@ -20,6 +20,7 @@ return {
   require 'plugins.indent_line',
   require 'plugins.autopairs',
   require 'plugins.gitsigns',
+
   --lsp plugins--
   require 'plugins.lsp.flutter',
   require 'plugins.lsp-config',
