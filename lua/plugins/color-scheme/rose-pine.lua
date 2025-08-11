@@ -2,6 +2,7 @@ return {
   {
     'rose-pine/neovim',
     name = 'rose-pine',
+    lazy = true,
     opts = {
       variant = 'auto', -- auto, main, moon, or dawn
       dark_variant = 'main', -- main, moon, or dawn
@@ -77,9 +78,10 @@ return {
         -- end
       end,
     },
-    config = function(_, opts)
-      require('rose-pine').setup(opts)
-      vim.cmd 'colorscheme rose-pine'
-    end,
+    --already called in colorme() in init.lua
+    -- config = function(_, opts)
+    --   require('rose-pine').setup(opts)
+    --   vim.cmd 'colorscheme rose-pine'
+    -- end,
   },
 }
