@@ -5,7 +5,7 @@ return {
     --    'javascriptreact', -- .jsx
     'typescript',
     --   'typescriptreact', -- .tsx
-    'html',
+    --    'html',
     'css',
     'scss',
     -- 'less',
@@ -28,7 +28,7 @@ return {
         '*.ts',
         --    '*.jsx',
         --   '*.tsx',
-        '*.html',
+        --       '*.html',
         '*.css',
         '*.scss',
         --  '*.less',

@@ -135,16 +135,20 @@ return {
       html = {},
 
       -- JSON LSP
-      jsonls = {
-        settings = {
-          json = {
-            schemas = {},
-          },
-        },
-      },
+      -- jsonls = {
+      --   settings = {
+      --     json = {
+      --       schemas = {},
+      --     },
+      --   },
+      -- },
 
-      -- TypeScript/JavaScript LSP (tsserver)
-      ts_ls = {},
+      -- -- TypeScript/JavaScript LSP (tsserver)
+      -- ts_ls = {
+      --   on_attach = function(client, bufnr)
+      --     client.server_capabilities.documentFormattingProvider = false
+      --   end,
+      -- },
 
       -- Rust Analyzer
       rust_analyzer = {},

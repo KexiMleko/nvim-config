@@ -13,7 +13,7 @@ return {
   --  require 'plugins.mini',
   require 'plugins.hardtime',
   --  require 'plugins.highlight-colors',
-  require 'plugins.none-ls',
+  --  require 'plugins.none-ls',
   require 'plugins.color-scheme',
 
   require 'plugins.debug',
