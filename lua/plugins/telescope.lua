@@ -1,3 +1,6 @@
+local is_windows = package.config:sub(1, 1) == '\\'
+
+local projects_path = is_windows and 'C:/Projects' or os.getenv 'HOME' .. '/projects'
 return {
   -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
@@ -59,7 +62,7 @@ return {
         project = {
           base_dirs = {
             { path = vim.fn.stdpath 'config', max_depth = 1 },
-            { path = 'C:\\Projects', max_depth = 2 },
+            { path = projects_path, max_depth = 2 },
           },
           hidden_files = false,
           theme = 'dropdown',
