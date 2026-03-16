@@ -1,208 +1,149 @@
-# 🧝‍♂️ THE SCROLLS OF NEOVIM: A TALE OF KICKSTARTER ORIGINS 🧙‍♀️
+# Neovim Configuration
 
-> *"In the ancient lands of Textoria, where the cursor blinks with mystical energy, a hero emerged from the ashes of Kickstarter, wielding the sacred configuration of Neovim. The elves of LSP forest whispered of its power, while the treesitter dwarves marveled at its syntax highlighting capabilities..."* 
->
-> — Chronicles of the Terminal Realm, Volume IV
+A personal Neovim setup built on top of [Kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim), extended with additional plugins and custom configuration.
 
-## 🔮 PROPHECY OF INSTALLATION
+## Requirements
 
-*Listen closely, weary traveler, for the installation of this sacred configuration requires following the ancient rituals precisely:*
+- Neovim >= 0.10.0
+- Git
+- A C compiler (`gcc` or `clang`) — required by some plugins
+- [ripgrep](https://github.com/BurntSushi/ripgrep) — for Telescope live grep
+- [fd](https://github.com/sharkdp/fd) — for faster file finding (optional)
+- A [Nerd Font](https://www.nerdfonts.com/) — for icons and glyphs
+- Node.js — required by some LSP servers
 
-```bash
-# Clone the repository of power into thy home directory
-git clone https://github.com/YOUR_USERNAME/nvim-config.git ~/.config/nvim
+## Plugins
 
-# Enter the sacred directory
-cd ~/.config/nvim
+| Plugin | Purpose |
+|--------|---------|
+| [lazy.nvim](https://github.com/folke/lazy.nvim) | Plugin manager |
+| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | LSP client configuration |
+| [mason.nvim](https://github.com/williamboman/mason.nvim) | LSP/DAP/linter installer |
+| [blink.cmp](https://github.com/saghen/blink.cmp) | Autocompletion |
+| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | Fuzzy finder |
+| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | Syntax highlighting |
+| [harpoon](https://github.com/ThePrimeagen/harpoon) | File bookmarks & quick navigation |
+| [vim-fugitive](https://github.com/tpope/vim-fugitive) | Git integration |
+| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Git diff signs in gutter |
+| [conform.nvim](https://github.com/stevearc/conform.nvim) | Code formatting |
+| [undotree](https://github.com/mbbill/undotree) | Undo history tree |
+| [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) | Highlighted TODO comments |
+| [which-key.nvim](https://github.com/folke/which-key.nvim) | Keymap popup hints |
+| [hardtime.nvim](https://github.com/m4xshen/hardtime.nvim) | Enforce better motion habits |
+| [nvim-dap](https://github.com/mfussenegger/nvim-dap) | Debug Adapter Protocol |
+| [nvim-autopairs](https://github.com/windwp/nvim-autopairs) | Auto bracket pairing |
+| [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) | Indentation guides |
 
-# Ensure thee has the required artifacts:
-# - Neovim >= 0.9.0 (the elder scrolls speak of this minimum version)
-# - A working brain (rare item, drops from educational dungeons)
-# - Git (to track changes in the timestream)
-# - A compiler (gcc/clang) for the telepathic plugins
-```
+## LSP Servers
 
-## 🧙 THE FELLOWSHIP OF PLUGINS
+Managed via Mason. Configured servers:
 
-*As the prophecy foretold, our hero gathered a fellowship of powerful plugins to aid in the quest against buggy code and syntax errors:*
+- `lua_ls` — Lua
+- `rust_analyzer` — Rust
+- `clangd` — C/C++
+- `html` — HTML
+- `yamlls` — YAML
+- `angularls` — Angular
 
-### 🧝‍♀️ THE ELVEN COUNCIL OF LSP
+## Keybindings
 
-```lua
--- LSP/ directory contains the ancient elven magic:
--- blink-cmp.lua - Summons autocompletion with the blink of an eye
--- colorscheme.lua - Contains the essence of visual aesthetics
--- conform.lua - Enforces the strict formatting laws of the realm
--- fugitive.lua - For negotiating with the git demons
--- harpoon.lua - Teleportation magic between files
--- init.lua - The ancient scroll that binds them all
--- lsp-config.lua - Speaks the language of many programming tongues
--- mini.lua - Small but mighty spells for everyday tasks
--- telescope.lua - Scrying orb for finding lost code fragments
--- todo-comments.lua - Remembrance spells for future tasks
--- treesitter.lua - The ancient language parser of the forest folk
--- undotree.lua - Manipulates the timeline of changes
--- which-key.lua - Reveals the hidden knowledge of keybinds
-```
+Leader key: `<Space>`
 
-### 🧌 THE KICKSTARTER GOBLINS
+### General
 
-*These chaotic entities formed the foundation of our hero's journey:*
+| Key | Action |
+|-----|--------|
+| `<Esc>` | Clear search highlights |
+| `<C-d>` / `<C-u>` | Scroll half-page down/up (cursor centered) |
+| `n` / `N` | Next/prev search result (cursor centered) |
+| `J` / `K` (visual) | Move selected lines down/up |
+| `<leader>n` | Open Netrw file explorer |
+| `<leader>q` | Open diagnostic quickfix list |
 
-```
--- autopairs.lua - Automatically pairs brackets like star-crossed lovers
--- debug.lua - Reveals the hidden truths of broken code
--- gitsigns.lua - Marks the territory changed by git spirits
--- indent_line.lua - Guides the eye through the valleys of indentation
-```
+### Window Navigation
 
-## 🗡️ SACRED KEYBINDINGS OF POWER
+| Key | Action |
+|-----|--------|
+| `<C-h>` | Focus left window |
+| `<C-l>` | Focus right window |
+| `<C-j>` | Focus lower window |
+| `<C-k>` | Focus upper window |
 
-*The ancient runes, when pressed in specific combinations, unleash powerful magic:*
+### Harpoon
 
-### 🔥 GENERAL INCANTATIONS
+| Key | Action |
+|-----|--------|
+| `<leader>a` | Add current file to Harpoon list |
+| `<C-e>` | Toggle Harpoon quick menu |
+| `<C-f>` | Open Harpoon list in Telescope |
+| `<C-h>` | Jump to Harpoon file 1 |
+| `<C-j>` | Jump to Harpoon file 2 |
+| `<C-k>` | Jump to Harpoon file 3 |
+| `<C-l>` | Jump to Harpoon file 4 |
+| `<C-S-P>` | Previous Harpoon file |
+| `<C-S-N>` | Next Harpoon file |
 
-| Rune Combination | Mystical Effect |
-|------------------|----------------|
-| `<Space>` | The Leader key, center of all power |
-| `<Esc>` | Dispels the highlighting enchantment |
-| `v + J/K` | Moves text blocks up and down like levitation |
-| `<C-d>/<C-u>` | Teleports half a page while keeping your position centered |
-| `n/N` | Seeks the next/previous search result with centered vision |
-| `<Leader>n` | Summons the Netrw file spirit |
+> **Note:** Harpoon navigation keys (`<C-h/j/k/l>`) overlap with window navigation. Harpoon bindings take effect when the Harpoon menu is active.
 
-### 🧙‍♂️ HARPOON TELEPORTATION
+### Telescope
 
-*The harpoon, forged in ancient fires, allows instant travel between important locations:*
+| Key | Action |
+|-----|--------|
+| `<leader>sf` | Find files |
+| `<leader>sg` | Live grep |
+| `<leader>sw` | Search word under cursor |
+| `<leader>sh` | Search help tags |
+| `<leader>sk` | Search keymaps |
+| `<leader>ss` | Select Telescope builtin |
+| `<leader>sd` | Search diagnostics |
+| `<leader>sr` | Resume last search |
+| `<leader>s.` | Recent files |
+| `<leader>sp` | Search projects |
+| `<leader>sn` | Search Neovim config files |
+| `<leader>s/` | Live grep in open files |
+| `<leader>/` | Fuzzy search in current buffer |
+| `<leader><leader>` | List open buffers |
+| `<C-p>` | Git files |
 
-| Rune Combination | Mystical Effect |
-|------------------|----------------|
-| `<Leader>a` | Marks current location with a magical beacon |
-| `<C-e>` | Opens the mystical portal menu |
-| `<C-h>` | Teleports to beacon 1 |
-| `<C-j>` | Teleports to beacon 2 |
-| `<C-k>` | Teleports to beacon 3 |
-| `<C-l>` | Teleports to beacon 4 |
-| `<C-S-P>` | Travels to previous beacon |
-| `<C-S-N>` | Travels to next beacon |
+### LSP (active when LSP is attached)
 
-### 🔭 TELESCOPE SCRYING
+| Key | Action |
+|-----|--------|
+| `grn` | Rename symbol |
+| `grr` | Go to references |
+| `grd` | Go to definition |
+| `grD` | Go to declaration |
+| `gri` | Go to implementation |
+| `grt` | Go to type definition |
+| `gO` | Document symbols |
+| `gW` | Workspace symbols |
+| `<leader>ca` | Code actions |
+| `<leader>e` | Show diagnostic float |
+| `]e` | Jump to next error |
+| `[e` | Jump to previous error |
+| `<leader>th` | Toggle inlay hints |
 
-*With the telescope artifact, one can search the cosmos for code and knowledge:*
+### Git (vim-fugitive)
 
-| Rune Combination | Mystical Effect |
-|------------------|----------------|
-| `<Leader>sh` | Searches the ancient help tomes |
-| `<Leader>sk` | Reveals all known keybinding spells |
-| `<Leader>sf` | Finds files in the current realm |
-| `<Leader>ss` | Selects which telescope lens to use |
-| `<C-p>` | Searches only files known to git |
-| `<Leader>sw` | Searches for the word under thy cursor |
-| `<Leader>sg` | Live grep search, finding text as thou type |
-| `<Leader>sd` | Reveals diagnostics from the debugging spirits |
-| `<Leader>sr` | Resumes thy last telescope search |
-| `<Leader>s.` | Shows recently opened scrolls |
-| `<Leader><Leader>` | Lists all open buffers |
+| Key | Action |
+|-----|--------|
+| `<leader>gs` | Git status |
+| `<leader>ga` | Git add current file |
+| `<leader>gc` | Git commit |
+| `<leader>gp` | Git push |
+| `<leader>gl` | Git pull |
+| `<leader>gd` | Git diff split |
+| `<leader>gb` | Git blame |
+| `<leader>go` | Git log |
+| `<leader>gh` | Open in browser (GBrowse) |
 
-### 🧝‍♀️ LANGUAGE SERVER PROTOCOL MAGIC
+### Terminal
 
-*The elven magic of LSP provides intelligence beyond mortal coding:*
+| Key | Action |
+|-----|--------|
+| `<leader>t` | Open terminal in vertical split |
+| `<Esc><Esc>` | Exit terminal mode |
 
-| Rune Combination | Mystical Effect |
-|------------------|----------------|
-| `<Leader>ca` | Summons code actions for magical fixes |
-| `<Leader>e` | Reveals diagnostic messages in a floating scroll |
-| `]e` | Jumps to next error in thy path |
-| `[e` | Returns to previous error |
+## Health Check
 
-### 🧙‍♂️ FUGITIVE GIT SORCERY
-
-*Control the timeline itself with these git manipulation spells:*
-
-| Rune Combination | Mystical Effect |
-|------------------|----------------|
-| `<Leader>gs` | Shows the current state of thy timeline |
-| `<Leader>ga` | Adds current file to the git staging area |
-| `<Leader>gc` | Commits thy changes to the timestream |
-| `<Leader>gp` | Pushes thy commits to the remote realm |
-| `<Leader>gl` | Pulls changes from the remote realm |
-| `<Leader>gd` | Shows the differences in the timeline |
-| `<Leader>gb` | Reveals who is to blame for each line |
-| `<Leader>go` | Shows the log of all timeline changes |
-| `<Leader>gh` | Opens thy repository in the browser crystal ball |
-
-## 📜 THE FORBIDDEN ARROW KEYS
-
-*Legend says those who use arrow keys shall be cursed with inefficiency for eternity:*
-
-```lua
--- These keys are bound to shame the unworthy:
-vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
-```
-
-## 🏰 THE ORIGIN STORY
-
-*Long ago, in the mythical realm of "Kickstarter," this configuration began as a humble seed. Through trials of debugging and tribulations of plugin compatibility, it grew into the mighty configuration you see today.*
-
-*It is said that the configuration was forged in the fires of productivity by a wizard who grew tired of waiting for VSCode to load. As punishment for its sluggishness, the wizard banished all non-terminal IDEs from their system and embarked on the Neovim journey.*
-
-*Some say the wizard still roams the lands of GitHub, committing improvements to their configuration while muttering curses at electron-based editors.*
-
-## 🧠 AWAKENING THE POWER
-
-*To unleash the full potential of this configuration, one must become one with the keyboard. Forget thy mouse, for it is a crutch of the weak. Embrace the modal editing philosophy, and you shall transcend to a higher plane of text manipulation.*
-
-```bash
-# Start thy journey with:
-nvim
-
-# Train thy fingers with:
-:Tutor
-
-# Check thy health with:
-:checkhealth
-```
-
-## ⚔️ KNOWN BATTLES AND VICTORIES
-
-- The Great Plugin War of 2023 (resolved by switching to lazy.nvim)
-- The LSP Configuration Crusade (won through persistence and StackOverflow)
-- The Tab vs. Space Holy War (spaces emerged victorious, 2 spaces per indent)
-- The Colorscheme Quest (ended with a custom theme that doesn't hurt thine eyes)
-
-## 🧪 POTIONS AND ELIXIRS FOR ENHANCEMENT
-
-*Should thee wish to enhance thy setup further, consider these magical additions:*
-
-```bash
-# Install ripgrep for enhanced telescope search magic
-sudo apt install ripgrep  # For debian-based realms
-brew install ripgrep      # For the mac kingdom
-
-# Install fd for faster file finding
-sudo apt install fd-find  # For debian-based realms
-brew install fd           # For the mac kingdom
-
-# Install Node.js for some LSP servers
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs
-```
-
-## 📝 SCROLLS OF WISDOM
-
-> *"The true Neovim wizard knows that 'hjkl' are not just keys, but a way of life."*
->
-> *"Seek not the mouse, for it leads only to inefficiency and carpal tunnel syndrome."*
->
-> *"He who uses `:w` frequently shall never lose more than a minute's work."*
-
----
-
-*This README was written on a full moon, using the very Neovim configuration it describes, by a wizard high on caffeine and low on sleep. Any bugs are not actually bugs but features designed to test thy patience and problem-solving abilities.*
-
-*May thy coding be swift and thy bugs be few.*
-
-*~ The End (or is it just the beginning of thy Neovim journey?) ~*
+Run `:checkhealth` inside Neovim to verify your setup and diagnose any missing dependencies.
