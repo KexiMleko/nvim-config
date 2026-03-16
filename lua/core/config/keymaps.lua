@@ -39,11 +39,11 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code actions' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show Diagnostic' })
 vim.keymap.set('n', ']e', function()
-  vim.diagnostic.goto_next { severity = vim.diagnostic.severity.ERROR }
+  vim.diagnostic.jump { severity = vim.diagnostic.severity.ERROR, count = 1 }
 end, { desc = 'Next Error' })
 
 vim.keymap.set('n', '[e', function()
-  vim.diagnostic.goto_prev { severity = vim.diagnostic.severity.ERROR }
+  vim.diagnostic.jump { severity = vim.diagnostic.severity.ERROR, count = -1 }
 end, { desc = 'Prev Error' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
