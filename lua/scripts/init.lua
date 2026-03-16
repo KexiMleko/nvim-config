@@ -3,6 +3,7 @@ require 'scripts.function-config'
 
 --NOTE: independent functions
 require 'scripts.enable_transparency'
+require 'scripts.vert_term'
 
 --NOTE: dependent functions
 require 'scripts.toggle-transparency'
